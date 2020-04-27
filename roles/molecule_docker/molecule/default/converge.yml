@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include molecule_docker"
+      include_role:
+        name: "molecule_docker"

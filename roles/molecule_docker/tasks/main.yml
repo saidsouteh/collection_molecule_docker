@@ -1,0 +1,29 @@
+---
+- name: install gcc & python devel  package
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - gcc
+    - python-devel
+
+- name: install docker packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ docker_packages }}"
+
+- name: Upgrade pip
+  pip:
+    name: pip
+    extra_args: --upgrade
+
+- name: Install / Upgrade setuptools
+  pip:
+    name: setuptools
+    extra_args: --upgrade
+
+- name: install pip package for molecule
+  pip:
+    name: "{{ item }}"
+  with_items: "{{ pip_packages }}"
