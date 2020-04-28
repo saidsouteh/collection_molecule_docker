@@ -4,8 +4,10 @@
     name: "{{ item }}"
     state: present
   with_items:
+    - epel-release
     - gcc
     - python-devel
+    - python-pip
 
 - name: install docker packages
   yum:
